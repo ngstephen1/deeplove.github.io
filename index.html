@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Anniversary Letter</title>
+  <!-- Import Google Fonts: a handwritten font for the letter and an elegant font for the header -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* Global styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+      font-family: 'Dancing Script', cursive;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Floating hearts background */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      color: #d6336c;
+      font-size: 24px;
+      animation: float 8s infinite ease-in;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+    /* Cool shaped letter container */
+    .letter-container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.95);
+      max-width: 800px;
+      width: 90%;
+      margin: 100px auto;
+      padding: 40px;
+      border: 2px solid #fcb69f;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      /* Create a cool octagonal shape using clip-path */
+      clip-path: polygon(0% 15%, 10% 0%, 90% 0%, 100% 15%, 100% 85%, 90% 100%, 10% 100%, 0% 85%);
+    }
+    /* Header styling */
+    .letter-container h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #d6336c;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating hearts background -->
+  <div class="hearts">
+    <span class="heart" style="left: 10%; animation-delay: 0s;">❤</span>
+    <span class="heart" style="left: 25%; animation-delay: 1s;">❤</span>
+    <span class="heart" style="left: 40%; animation-delay: 2s;">❤</span>
+    <span class="heart" style="left: 55%; animation-delay: 3s;">❤</span>
+    <span class="heart" style="left: 70%; animation-delay: 4s;">❤</span>
+    <span class="heart" style="left: 85%; animation-delay: 5s;">❤</span>
+    <span class="heart" style="left: 20%; animation-delay: 3.5s;">❤</span>
+    <span class="heart" style="left: 50%; animation-delay: 2.5s;">❤</span>
+    <span class="heart" style="left: 80%; animation-delay: 4.5s;">❤</span>
+  </div>
+
+  <!-- Letter container -->
+  <div class="letter-container" id="letter">
+    <h1>Happy Anniversary Letter</h1>
+    <!-- The letter content will be typed below the header -->
+  </div>
+
+  <script>
+    // Replace the text below with your own 500-word letter.
+    const letterText = `Dear EM YÊU ANH yêu em nhiềuuuu,
+
+I want you to know that every moment spent with you is like a beautiful heartbeat that resonates with love and warmth. From the laughter we share to the silent moments of understanding, our journey together has been nothing short of magical. Today, as we celebrate another year of love and commitment, I am overwhelmed by gratitude for every smile, every tear, and every embrace.
+
+Your presence fills my life with color, and your love is the melody that soothes my soul. I remember the first time we met, and I knew that my heart had found its home. The way you light up a room with your kindness and grace is something that I cherish every day. Our love is a story written in the stars, a tale of passion and promise that grows more beautiful with each passing day.
+
+As I write this letter, I see our memories dancing like floating hearts, each one a symbol of our shared dreams and future adventures. I am forever grateful for the love that we nurture, the dreams we build, and the laughter that echoes in our hearts. May this letter be a reminder of the endless love we share, and the countless memories still waiting to be made.
+
+With all my love,
+Your Heartfelt Admirer
+
+P.S. You are the love that inspires me, the light that guides me, and the dream that makes life worth living.`;
+
+    const letterContainer = document.getElementById('letter');
+    let index = 0;
+    const speed = 35; // milliseconds per character for the typewriter effect
+
+    function typeWriter() {
+      if (index < letterText.length) {
+        letterContainer.innerHTML += letterText.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
